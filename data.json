@@ -1,0 +1,100 @@
+{
+    "students": [
+        {
+            "name": "A",
+            "ip": null,
+            "courses": [
+                "Python Programming",
+                "Data Structures and Algorithms"
+            ],
+            "ic_number": "790803175682"
+        },
+        {
+            "name": "B",
+            "ip": null,
+            "courses": [
+                "Java Programming"
+            ]
+        },
+        {
+            "name": "C",
+            "ip": null,
+            "courses": []
+        },
+        {
+            "name": "D",
+            "ip": null,
+            "courses": []
+        },
+        {
+            "name": "E",
+            "ip": null,
+            "courses": [
+                "Python Programming"
+            ]
+        },
+        {
+            "name": "F",
+            "ip": null,
+            "courses": []
+        },
+        {
+            "name": "G",
+            "ip": null,
+            "courses": []
+        },
+        {
+            "name": "H",
+            "ip": null,
+            "courses": []
+        },
+        {
+            "name": "I",
+            "ip": null,
+            "courses": []
+        },
+        {
+            "name": "J",
+            "ip": null,
+            "courses": []
+        }
+    ],
+    "courses": [
+        {
+            "name": "Python Programming",
+            "time": "9:00-11:00",
+            "classroom": "Room 1",
+            "students": []
+        },
+        {
+            "name": "Java Programming",
+            "time": "11:30-1:30",
+            "classroom": "Room 2",
+            "students": []
+        },
+        {
+            "name": "Web Development",
+            "time": "2:30-4:30",
+            "classroom": "Room 3",
+            "students": []
+        },
+        {
+            "name": "Data Structures and Algorithms",
+            "time": "9:00-11:00",
+            "classroom": "Room 4",
+            "students": []
+        },
+        {
+            "name": "Computer Networks",
+            "time": "11:30-1:30",
+            "classroom": "Room 5",
+            "students": []
+        },
+        {
+            "name": "Operating Systems",
+            "time": "2:30-4:30",
+            "classroom": "Room 6",
+            "students": []
+        }
+    ]
+}

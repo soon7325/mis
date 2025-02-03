@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Course</title>
+</head>
+<body>
+    <h1>Add Course</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Classroom</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(1, 7) %}
+            <tr>
+                {% set room_name = 'Room ' + i|string %}
+                <td>{{ room_name }}</td>
+                <td>
+                    {% if schedule[room_name] %}
+                        {{ schedule[room_name].name }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Add Course</h2>
+    <form method="POST">
+        <label for="classroom">Classroom:</label>
+        <select name="classroom" id="classroom" required>
+            {% for i in range(1, 7) %}
+                {% set room_name = 'Room ' + i|string %}
+                {% if not schedule[room_name] %}
+                    <option value="{{ room_name }}">{{ room_name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <label for="course_name">Course Name:</label>
+        <input type="text" name="course_name" id="course_name" required>
+        <label for="time">Time:</label>
+        <input type="text" name="time" id="time" required>
+        <button type="submit">Add Course</button>
+    </form>
+</body>
+</html>

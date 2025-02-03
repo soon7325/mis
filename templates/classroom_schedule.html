@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ time_slot }} Classroom Schedule</title>
+</head>
+<body>
+    <h1>{{ time_slot }} Classroom Schedule</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Classroom</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(1, 7) %}
+            <tr>
+                {% set room_name = 'Room ' + i|string %}
+                <td>{{ room_name }}</td>
+                <td>
+                    {% if schedule[room_name] %}
+                        {{ schedule[room_name].name }}
+                    {% elif room_name in temp_courses and temp_courses[room_name] %}
+                        {{ temp_courses[room_name].name }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Add Temporary Course</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="add_temp_course">
+        <label for="classroom">Classroom:</label>
+        <select name="classroom" id="classroom" required>
+            {% for i in range(1, 7) %}
+                {% set room_name = 'Room ' + i|string %}
+                {% if not schedule[room_name] and not (room_name in temp_courses and temp_courses[room_name]) %}
+                    <option value="{{ room_name }}">{{ room_name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <label for="course_name">Course Name:</label>
+        <select name="course_name" id="course_name" required>
+            {% for course in data['courses'] %}
+                <option value="{{ course['name'] }}">{{ course['name'] }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add Course</button>
+    </form>
+</body>
+</html>

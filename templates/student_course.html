@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Course Information</title>
+</head>
+<body>
+    <h1>Welcome, {{ student.name }}!</h1>
+
+    {% if courses %}
+        <h2>Your Courses:</h2>
+        <ul>
+            {% for course in courses %}
+                <li>{{ course.name }} - {{ course.time }} - {{ course.classroom }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You don't have any courses scheduled.</p>
+    {% endif %}
+
+    <a href="/">Back to Sign In</a>
+</body>
+</html>

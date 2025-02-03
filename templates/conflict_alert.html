@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conflict Alert</title>
+</head>
+<body>
+    <h1>Scheduling Conflict!</h1>
+    <p>Student {{ student_name }} cannot be enrolled in {{ course_name }} at {{ time_slot }} due to a scheduling conflict.</p>
+
+    <a href="{{ url_for('classroom_schedule', time_slot=time_slot) }}">Back to Schedule</a>
+</body>
+</html>

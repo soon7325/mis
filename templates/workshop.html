@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workshop</title>
+</head>
+<body>
+    <h1>Workshop</h1>
+    {% if workshops %}
+    <table>
+        <thead>
+            <tr>
+                <th>Course Name (Day)</th>
+                <th>Time</th>
+                <th>Classroom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for workshop in workshops %}
+            <tr>
+                <td>{{ workshop.name }} ({{ workshop.day }})</td>
+                <td>{{ workshop.time }}</td>
+                <td>{{ workshop.classroom }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No Workshop</p>
+    {% endif %}
+
+    <h2>Workshop Enrollment</h2>
+    <form method="POST">
+        <label for="ic_number">IC Number:</label>
+        <input type="text" name="ic_number" id="ic_number" required><br>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" readonly><br>
+        <label for="workshop">Select Workshop:</label>
+        <select name="workshop" id="workshop" required>
+            {% for workshop in workshops %}
+            <option value="{{ workshop.name }}">{{ workshop.name }} ({{ workshop.day }})</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Enroll</button>
+    </form>
+
+    <button onclick="window.location.href='/'">Back to Sign In</button>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classroom Information</title>
+</head>
+<body>
+    <h1>{{ course.name }} ({{ course.classroom }})</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Classroom</td>
+                <td>{{ course.classroom }}</td>
+            </tr>
+            <tr>
+                <td>Occupancy</td>
+                <td>
+                    {% if course.students %}
+                        Occupied by {{ course.students|join(', ') }}
+                    {% else %}
+                        Available
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/teacher">Back to Dashboard</a>
+</body>
+</html>
